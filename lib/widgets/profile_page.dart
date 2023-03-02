@@ -35,14 +35,11 @@ home({Key? key, required this.title}) : super(key: key);
 }
 
 class _homeState extends State<home> {
-   final ApiTrans api = ApiTrans();
-  List<Transaction> transactionList=[];
+ 
 
   @override
   Widget build(BuildContext context) {
-    if(transactionList == null) {
-      transactionList = <Transaction>[];
-    }
+   
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -50,41 +47,19 @@ class _homeState extends State<home> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
       body: new Container(
         child: new Center(
-            child: new FutureBuilder(
-              future: loadList(),
-              builder: (context, snapshot) {
-                return transactionList.length > 0? new TransactionList(transaction: transactionList):
-                new Center(child:
-                new Text('No data found, tap plus button to add!', style: Theme.of(context).textTheme.headline6));
-              },
-            )
+            child:  Text(' profile page '),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _navigateToAddScreen(context);
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
- Future loadList() {
-    Future<List<Transaction>> futureCases = api.getCat();
-    futureCases.then((transactionList) {
-      setState(() {
-        this.transactionList = transactionList;
-      });
-    });
-    return futureCases;
   }
 
-  _navigateToAddScreen (BuildContext context) async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Addtrans()),
-    );
-  }
+
 }

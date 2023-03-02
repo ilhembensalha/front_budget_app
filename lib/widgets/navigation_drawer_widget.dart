@@ -6,6 +6,7 @@ import 'package:budget_app/login_page.dart';
 import 'package:budget_app/pages/data.dart';
 import 'package:budget_app/transaction/affichetrans.dart';
 import 'package:budget_app/widgets/bottomnav.dart';
+import 'package:budget_app/widgets/profile_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NavigationDrawer extends StatefulWidget {
@@ -62,14 +63,14 @@ class NavigationDrawerWidget extends State<NavigationDrawer> {
           Divider(),
         
             ListTile(
-            leading: Icon(Icons.calendar_today),
-            title: Text('calendar'),
+            leading: Icon(Icons.verified_user_rounded),
+            title: Text('profile_page'),
             onTap: ()  {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                     date(title: 'date',)));
+                                     home(title: 'profile',)));
                             },
           ),
            

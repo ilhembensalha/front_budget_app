@@ -6,7 +6,7 @@ import 'package:budget_app/pages/options.dart';
 
 import 'package:budget_app/transaction/affichetrans.dart';
 import 'package:budget_app/widgets/navigation_drawer_widget.dart' as drawer;
-import 'package:budget_app/widgets/profile_page.dart';
+
 
 class Nav extends StatefulWidget {
   @override
@@ -17,7 +17,7 @@ class _NavState extends State<Nav> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
    
-      home(title: '',),  
+      Affichetrans(title: '',),  
       MyApp(), 
   ];
 
